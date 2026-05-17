@@ -1,0 +1,74 @@
+import { useState, useRef, useEffect } from 'react'
+
+interface VideoEmbedProps {
+  vimeoId: string
+  title: string
+  thumbnail: string
+}
+
+export function VideoEmbed({ vimeoId, title, thumbnail }: VideoEmbedProps) {
+  const [loaded, setLoaded] = useState(false)
+  const [inView, setInView] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const el = containerRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setInView(true) },
+      { threshold: 0.1 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div
+      ref={containerRef}
+      className="relative w-full overflow-hidden bg-black"
+      style={{ aspectRatio: '16 / 9' }}
+    >
+      {!loaded && (
+        <div
+          className="absolute inset-0 cursor-pointer group"
+          onClick={() => setLoaded(true)}
+          role="button"
+          tabIndex={0}
+          aria-label={`Play ${title}`}
+          onKeyDown={(e) => e.key === 'Enter' && setLoaded(true)}
+        >
+          <img
+            src={thumbnail}
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 bg-black/30 group-hover:bg-black/45 transition-colors duration-200 flex items-center justify-center">
+            <div className="w-14 h-14 rounded-full border border-white/70 flex items-center justify-center bg-black/20 group-hover:border-white group-hover:scale-105 transition-all duration-200">
+              <svg
+                className="w-5 h-5 text-white ml-0.5"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                aria-hidden="true"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {inView && loaded && (
+        <iframe
+          src={`https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0`}
+          title={title}
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowFullScreen
+          className="absolute inset-0 w-full h-full border-0"
+          loading="lazy"
+        />
+      )}
+    </div>
+  )
+}

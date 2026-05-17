@@ -1,0 +1,8 @@
+node_modules/
+dist/
+dist-bundle/
+bundle.html
+.parcelrc
+.parcel-cache/
+.DS_Store
+*.local

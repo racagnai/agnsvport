@@ -1,0 +1,76 @@
+{
+  "meta": {
+    "siteTitle": "Agnes Svilenov — Motion Designer",
+    "siteDescription": "Motion designer building campaigns, products, and collaborative creative environments."
+  },
+  "nav": {
+    "name": "AGNES SVILENOV",
+    "links": [
+      { "label": "Reel", "href": "#reel" },
+      { "label": "Selected Projects", "href": "#work" },
+      { "label": "About Me", "href": "#about" },
+      { "label": "Contact", "href": "#contact" }
+    ]
+  },
+  "hero": {
+    "line1": "MOTION FOR COMPLEX",
+    "line2": "CREATIVE SYSTEMS",
+    "subtitle": "Built across campaigns, products, and collaborative creative environments."
+  },
+  "reel": {
+    "thumbnail": "/MainReel_thumb.webp",
+    "alt": "Demo Reel — Motion Designer",
+    "vimeoId": "76979871",
+    "cta": "Watch Reel"
+  },
+  "work": {
+    "sectionLabel": "SELECTED WORK",
+    "projects": [
+      {
+        "id": "youtube",
+        "client": "Youtube",
+        "title": "Carrying the heat when it counts",
+        "keywords": "Campaign · Social & Digital Platforms",
+        "description": "Brought in to fill a lead role on a high-visibility campaign — international markets, Times Square placement, high expectations. I delivered because motion at that scale is coordination as much as craft.",
+        "thumbnail": "/youtube_thumb.webp",
+        "vimeoId": "137857207",
+        "year": "2023"
+      },
+      {
+        "id": "riot-games",
+        "client": "Riot Games",
+        "title": "Finding the language mid-flight",
+        "keywords": "Stage format · Realism & Graphic Language",
+        "description": "I joined this campaign mid-sprint — no handover, a format I'd never worked in, and a deadline that didn't move. The brief asked for a blend of photorealistic and graphic visual languages, at scale, live on stage. Constraints became the design tool. The work held.",
+        "thumbnail": "/RiotGames_thumb.webp",
+        "vimeoId": "148751763",
+        "year": "2022"
+      }
+    ]
+  },
+  "about": {
+    "sectionLabel": "ABOUT ME",
+    "avatar": "/About_me.webp",
+    "avatarAlt": "Agnes Svilenov — illustrated avatar",
+    "bio": [
+      "Eight years working across agencies, freelance, and collaborative production environments. Experience building motion systems for campaigns, digital platforms, branded experiences, and large-format screens, often inside fast-moving projects with shifting requirements and timelines.",
+      "Focused on motion that functions beyond the final render: scalable, adaptable, and built for real-world production environments."
+    ]
+  },
+  "ai": {
+    "sectionLabel": "ON AI",
+    "thumbnail": "/AI_thumb.webp",
+    "thumbnailAlt": "AI project still",
+    "vimeoId": "194737468",
+    "body": "I've been exploring AI as a motion tool for visual exploration, asset generation, and early-stage concepting. Genuinely curious about where it takes the craft.\n\nI believe it's most valuable when integrated into larger creative systems, accelerating iteration while leaving room for intentional design decisions and collaborative refinement."
+  },
+  "contact": {
+    "sectionLabel": "CONTACT",
+    "heading": "I'm looking for a place where it means something — where I can push it forward alongside people who feel the same way.",
+    "body": "Open to opportunities. Drop an email and let's talk about what we can build together.",
+    "email": "aragaki.svi@gmail.com"
+  },
+  "footer": {
+    "copy": "© 2024"
+  }
+}
