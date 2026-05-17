@@ -52,7 +52,6 @@ export default function App() {
           sectionLabel={data.contact.sectionLabel}
           heading={data.contact.heading}
           body={data.contact.body}
-          submitLabel={data.contact.submitLabel}
           email={data.contact.email}
         />
       </main>

@@ -8,7 +8,7 @@ interface AISectionProps {
   body: string
 }
 
-export function AISection({ sectionLabel, thumbnail, thumbnailAlt, vimeoId, body }: AISectionProps) {
+export function AISection({ sectionLabel, thumbnail, vimeoId, body }: AISectionProps) {
   const paragraphs = body.split('\n\n')
 
   return (

@@ -4,6 +4,7 @@ interface Project {
   id: string
   client: string
   title: string
+  keywords?: string
   description: string
   thumbnail: string
   vimeoId: string
