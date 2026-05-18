@@ -20,7 +20,8 @@
   "reel": {
     "thumbnail": "/MainReel_thumb.webp",
     "alt": "Demo Reel — Motion Designer",
-    "vimeoId": "76979871",
+    "platform": "vimeo",
+    "videoId": "76979871",
     "cta": "Watch Reel"
   },
   "work": {
@@ -33,7 +34,8 @@
         "keywords": "Campaign · Social & Digital Platforms",
         "description": "Brought in to fill a lead role on a high-visibility campaign — international markets, Times Square placement, high expectations. I delivered because motion at that scale is coordination as much as craft.",
         "thumbnail": "/youtube_thumb.webp",
-        "vimeoId": "137857207",
+        "platform": "youtube",
+        "videoId": "YOUTUBE_ID_1",
         "year": "2023"
       },
       {
@@ -43,7 +45,8 @@
         "keywords": "Stage format · Realism & Graphic Language",
         "description": "I joined this campaign mid-sprint — no handover, a format I'd never worked in, and a deadline that didn't move. The brief asked for a blend of photorealistic and graphic visual languages, at scale, live on stage. Constraints became the design tool. The work held.",
         "thumbnail": "/RiotGames_thumb.webp",
-        "vimeoId": "148751763",
+        "platform": "youtube",
+        "videoId": "YOUTUBE_ID_2",
         "year": "2022"
       }
     ]
@@ -61,7 +64,8 @@
     "sectionLabel": "ON AI",
     "thumbnail": "/AI_thumb.webp",
     "thumbnailAlt": "AI project still",
-    "vimeoId": "194737468",
+    "platform": "youtube",
+    "videoId": "KB4roogscTA",
     "body": "I've been exploring AI as a motion tool for visual exploration, asset generation, and early-stage concepting. Genuinely curious about where it takes the craft.\n\nI believe it's most valuable when integrated into larger creative systems, accelerating iteration while leaving room for intentional design decisions and collaborative refinement."
   },
   "contact": {

@@ -24,7 +24,7 @@ export default function App() {
         <Reel
           thumbnail={data.reel.thumbnail}
           alt={data.reel.alt}
-          vimeoId={data.reel.vimeoId}
+          vimeoId={data.reel.videoId}
           cta={data.reel.cta}
         />
 
@@ -44,7 +44,8 @@ export default function App() {
           sectionLabel={data.ai.sectionLabel}
           thumbnail={data.ai.thumbnail}
           thumbnailAlt={data.ai.thumbnailAlt}
-          vimeoId={data.ai.vimeoId}
+          platform={data.ai.platform as 'vimeo' | 'youtube'}
+          videoId={data.ai.videoId}
           body={data.ai.body}
         />
 

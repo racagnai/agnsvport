@@ -4,11 +4,12 @@ interface AISectionProps {
   sectionLabel: string
   thumbnail: string
   thumbnailAlt: string
-  vimeoId: string
+  platform: 'vimeo' | 'youtube'
+  videoId: string
   body: string
 }
 
-export function AISection({ sectionLabel, thumbnail, vimeoId, body }: AISectionProps) {
+export function AISection({ sectionLabel, thumbnail, platform, videoId, body }: AISectionProps) {
   const paragraphs = body.split('\n\n')
 
   return (
@@ -27,7 +28,7 @@ export function AISection({ sectionLabel, thumbnail, vimeoId, body }: AISectionP
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
           {/* Video embed */}
-          <VideoEmbed vimeoId={vimeoId} title={sectionLabel} thumbnail={thumbnail} />
+          <VideoEmbed videoId={videoId} platform={platform} title={sectionLabel} thumbnail={thumbnail} />
 
           {/* Text */}
           <div className="space-y-5">

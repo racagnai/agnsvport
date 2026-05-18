@@ -6,8 +6,9 @@ interface Project {
   title: string
   keywords?: string
   description: string
-  thumbnail: string
-  vimeoId: string
+  thumbnail?: string
+  platform: 'vimeo' | 'youtube'
+  videoId: string
   year: string
 }
 
@@ -20,7 +21,8 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <article aria-label={`${project.client} — ${project.title}`}>
       <VideoEmbed
-        vimeoId={project.vimeoId}
+        videoId={project.videoId}
+        platform={project.platform}
         title={`${project.client} — ${project.title}`}
         thumbnail={project.thumbnail}
       />

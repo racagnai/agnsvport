@@ -1,15 +1,43 @@
 import { useState, useRef, useEffect } from 'react'
 
+type Platform = 'vimeo' | 'youtube'
+
 interface VideoEmbedProps {
-  vimeoId: string
+  videoId: string
+  platform: Platform
   title: string
-  thumbnail: string
+  /** Optional override poster. If omitted, YouTube uses its thumbnail API automatically. */
+  thumbnail?: string
 }
 
-export function VideoEmbed({ vimeoId, title, thumbnail }: VideoEmbedProps) {
+function getPoster(platform: Platform, videoId: string, thumbnail?: string): string {
+  if (thumbnail) return thumbnail
+  if (platform === 'youtube') {
+    return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
+  }
+  return '' // Vimeo always requires an explicit thumbnail
+}
+
+function getEmbedSrc(platform: Platform, videoId: string): string {
+  if (platform === 'youtube') {
+    return `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`
+  }
+  return `https://player.vimeo.com/video/${videoId}?autoplay=1&title=0&byline=0&portrait=0`
+}
+
+function getAllow(platform: Platform): string {
+  if (platform === 'youtube') {
+    return 'autoplay; clipboard-write; encrypted-media; picture-in-picture'
+  }
+  return 'autoplay; fullscreen; picture-in-picture'
+}
+
+export function VideoEmbed({ videoId, platform, title, thumbnail }: VideoEmbedProps) {
   const [loaded, setLoaded] = useState(false)
   const [inView, setInView] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
+
+  const poster = getPoster(platform, videoId, thumbnail)
 
   useEffect(() => {
     const el = containerRef.current
@@ -37,13 +65,15 @@ export function VideoEmbed({ vimeoId, title, thumbnail }: VideoEmbedProps) {
           aria-label={`Play ${title}`}
           onKeyDown={(e) => e.key === 'Enter' && setLoaded(true)}
         >
-          <img
-            src={thumbnail}
-            alt=""
-            aria-hidden="true"
-            className="absolute inset-0 w-full h-full object-cover"
-            loading="lazy"
-          />
+          {poster && (
+            <img
+              src={poster}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover"
+              loading="lazy"
+            />
+          )}
           <div className="absolute inset-0 bg-black/30 group-hover:bg-black/45 transition-colors duration-200 flex items-center justify-center">
             <div className="w-14 h-14 rounded-full border border-white/70 flex items-center justify-center bg-black/20 group-hover:border-white group-hover:scale-105 transition-all duration-200">
               <svg
@@ -61,9 +91,9 @@ export function VideoEmbed({ vimeoId, title, thumbnail }: VideoEmbedProps) {
 
       {inView && loaded && (
         <iframe
-          src={`https://player.vimeo.com/video/${vimeoId}?autoplay=1&title=0&byline=0&portrait=0`}
+          src={getEmbedSrc(platform, videoId)}
           title={title}
-          allow="autoplay; fullscreen; picture-in-picture"
+          allow={getAllow(platform)}
           allowFullScreen
           className="absolute inset-0 w-full h-full border-0"
           loading="lazy"
